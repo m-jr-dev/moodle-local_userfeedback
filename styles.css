@@ -435,6 +435,7 @@
 #uf-launcher {
     position: fixed;
     right: 0;
+	bottom: 100px !important;
     background: #0054d1;
     color: #fff;
     padding: 14px 10px;

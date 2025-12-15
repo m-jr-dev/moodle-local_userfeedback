@@ -19,32 +19,6 @@ define(['jquery', 'core/ajax', 'core/str', 'core/templates'], function($, Ajax, 
                         $('.uf-title').text(s);
                     });
 
-                    function posicionarLauncher() {
-                        var widget = $('#uf-widget');
-                        var card = $('#uf-widget .ufb-card');
-                        var launcher = $('#uf-launcher');
-                        var wasHidden = widget.hasClass('uf-hidden');
-
-                        if (wasHidden) {
-                            widget.removeClass('uf-hidden').css('visibility', 'hidden');
-                        }
-
-                        var hCard = card.outerHeight();
-                        var hBtn = launcher.outerHeight();
-                        var posTop = (hCard / 2) - (hBtn / 2);
-
-                        launcher.css({
-                            top: 'calc(53% + ' + posTop + 'px)'
-                        });
-
-                        if (wasHidden) {
-                            widget.addClass('uf-hidden').css('visibility', '');
-                        }
-                    }
-
-                    posicionarLauncher();
-                    $(window).on('resize', posicionarLauncher);
-
                     $(document).on('click', '#uf-launcher', function() {
 
                         var widget = $('#uf-widget');
@@ -56,12 +30,10 @@ define(['jquery', 'core/ajax', 'core/str', 'core/templates'], function($, Ajax, 
                             launcher.css({
                                 right: (widget.outerWidth() + 20) + 'px'
                             });
-                            posicionarLauncher();
                         } else {
                             launcher.css({
                                 right: '0px'
                             });
-                            posicionarLauncher();
                         }
                     });
 
@@ -104,7 +76,6 @@ define(['jquery', 'core/ajax', 'core/str', 'core/templates'], function($, Ajax, 
                                 setTimeout(function() {
                                     $('#uf-widget').fadeOut(400);
                                     $('#uf-launcher').fadeOut(400);
-                                    posicionarLauncher();
                                 }, 4200);
 
                             })
